@@ -10,6 +10,7 @@ import AboutPage from './Pages/AboutPage/AboutPage.component';
 import IntroPage from './Pages/IntroPage/IntroPage.component';
 import SignIn from './Pages/SignInPage/SignIn.component';
 import AgentsPage, {AgentPage} from './Pages/AgentsPage/AgentsPage.component'
+import ShopsPage from './Pages/ShopsPage/ShopsPage.component';
 
 
 const App = () => {
@@ -28,11 +29,12 @@ const App = () => {
         <NavBar toggle={toggle}/>
         <Switch>
           <Route exact path='/' component={IntroPage} />
-          <Route exact path='/signin' component={SignIn} />
-          <Route exact path='/signup' component={SignUp} />
-          <Route exact path='/home' component={HomePage} />
-          <Route exact path='/about' component={AboutPage} />
-          <Route exact path='/agent' component={AgentsPage} />
+          <Route  path='/signin' component={SignIn} />
+          <Route  path='/signup' component={SignUp} />
+          <Route  path='/home' component={HomePage} />
+          <Route  path='/about' component={AboutPage} />
+          <Route  path='/agent' component={AgentsPage} />
+          <Route path='/shops' component={ShopsPage}/>
         </Switch>
       </Router>
     </div>
