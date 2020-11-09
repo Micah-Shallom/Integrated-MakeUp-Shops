@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { MdArrowForward,MdKeyboardArrowRight} from 'react-icons/md';
+import ThemeColor from "../../ThemeProvider";
 
 export const HeroContainer = styled.div`
   background: #0c0c0c;
@@ -61,6 +62,11 @@ export const HeroH1 = styled.h1`
   font-size: 48px;
   text-align:center;
   padding: 10px 0;
+
+  .icon{
+    color:${ThemeColor.Darker_Red};
+    font-size:5rem;
+  }
 `;
 
 export const HeroContentWrapper = styled.div`
@@ -83,11 +89,7 @@ export const Content = styled.div`
   justify-content:center;
   align-items:${({right}) => (right ? 'flex-end' : 'flex-start')};
   padding: 0 20px;
-  transition: 1s ease-in-out;
 
-  &:hover{
-    border:2px solid #fff;
-  }
 
   @media screen and (max-width: 768px){
     padding: 0 20px;

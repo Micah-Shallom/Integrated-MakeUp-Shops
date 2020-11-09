@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ThemeColor from "../../ThemeProvider";
 
 export const SignInContainer = styled.div`
   width: 100%;
@@ -6,7 +7,6 @@ export const SignInContainer = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
-  margin-top:20px;
 `;
 
 export const SignInWrapper = styled.div`
@@ -15,44 +15,46 @@ export const SignInWrapper = styled.div`
   height: 80%;
   width: 90%;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-  border : 2px solid #ccc;
 `;
 
 export const SignInForm = styled.form`
+background-color:white;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   position:relative;
-  width: 80%;
+  width: 90%;
   margin:auto;
 
   & .bisect{
     position:relative;
+    margin:4px 0;
 
-    &::before{
+    &::before,&::after{
       content : '';
       position:absolute;
       border-bottom: 2px solid #000;
-      width: 10px;
+      width: 40px;
       top: 50%;
-      left: -15px;
+      left: -45px;
     }
 
     &::after{
-      content : '';
-      position:absolute;
-      border-bottom: 2px solid #000;
-      width: 10px;
-      top: 50%;
       left: 30px;
     }
     
   }
 `;
 
+export const FormWrapper = styled.div`
+  width:100%;
+`;
+
 export const SignInLogo = styled.div`
  align-self:flex-start;
+ font-size:3rem;
+ color:${ThemeColor.Lighter_Red}
 `;
 
 export const SignInH1 = styled.h1`
@@ -140,6 +142,10 @@ export const RememberMe = styled.div`
   display:flex;
   justify-content:space-between;
   align-items:center;
+
+  .check{
+    margin-right:5px;
+  }
 `;
 
 export const SignInButtons = styled.div`

@@ -15,15 +15,6 @@ const AdminLayout = () => {
    <AdminLayoutContainer>
      <div className="adminOverall">
 
-       <div className="adminOverall__header">
-         <h2 className="adminOverall__header__title">
-           Welcome Admin
-         </h2>
-         <h3 className="adminOverall__header__userName">
-           Micah Shallom
-         </h3>
-       </div>
-
        <div className="adminOverall__body">
          {/* <AdminEntry main/> */}
          <BasicInfo/>

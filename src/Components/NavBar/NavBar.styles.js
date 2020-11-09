@@ -1,21 +1,17 @@
 import { Link as LinkR } from "react-router-dom";
 import styled from "styled-components";
+import ThemeColor from "../../ThemeProvider";
 
 export const Nav = styled.nav`
   width: 100%;
   height: 10vh;
-  background-color:#fff;
+  background:linear-gradient(150deg, ${ThemeColor.Darker_Red},${ThemeColor.Medium_Green}) ;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-  color: #000;
   display:flex;
   justify-content:center;
   align-items:center;
-  font-size: 1rem;
-  ${'' /* position:sticky;
-  top:0;
-  left: 0; */}
+  font-size: 1.2rem;
   z-index:10;
-  ${'' /* margin-top:-65px; */}
 `;
 
 export const NavbarContainer = styled.div`
@@ -29,8 +25,8 @@ export const NavbarContainer = styled.div`
 `;
 
 export const NavLogo = styled(LinkR)`
-  color : #000;
   justify-self:flex-start;
+  color:#fff;
   cursor: pointer;
   font-size:1.2rem;
   display:flex;
@@ -42,14 +38,15 @@ export const NavLogo = styled(LinkR)`
 
 export const MobileNav = styled.div`
   display:none;
+  color:#fff;
 
   @media screen and (max-width: 768px){
     display:block;
     position:absolute;
-    top:-15px;
+    top:-7px;
     right:0;
     transform :translate(-100%,60%);
-    font-size:1.8rem;
+    font-size:1.75rem;
     cursor: pointer;
   }
 `;
@@ -72,14 +69,31 @@ export const NavItem = styled.li`
   display:flex;
   align-items : center;
   justify-content:center;
+  position: relative;
+
+  &::after{
+    content: '';
+    width: 0%;
+    background-color:${ThemeColor.Darker_Red};
+    height: 5px;
+    margin: auto;
+    display: block;
+    transition: .2s ease-in-out all;
+    position:absolute;
+    bottom:12px;
+    border-radius:20px;
+  }
+
+  &:hover::after{
+    width:100%;
+  }
 `;
 
 export const NavLink = styled(LinkR)`
+  color:#fff;
   display:flex;
   align-items:center;
   text-decoration:none;
-  color:#000;
-  height:100%;
   padding: 0 1rem;
   transition: .2s ease-in-out ;
 `;

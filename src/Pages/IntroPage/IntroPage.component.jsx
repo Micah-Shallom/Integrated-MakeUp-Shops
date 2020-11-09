@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { RButton } from '../../Components/Button/CButton.styles';
 import video from '../../assets/videos/video.mp4'
+import {GiLipstick, GiMirrorMirror} from 'react-icons/gi'
 import {
   HeroBg,
   HeroContainer,
@@ -29,7 +30,11 @@ const IntroPage = () => {
      <VideoBg autoPlay loop muted src={video} type='video/mp4'/>
      </HeroBg>
      <HeroContent>
-            <HeroH1>Welcome</HeroH1>
+            <HeroH1>
+              <GiLipstick className='icon'/>
+              Welcome
+              <GiMirrorMirror className='icon mirror'/>
+            </HeroH1>
 
             <HeroContentWrapper>
               <Content>

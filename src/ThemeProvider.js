@@ -1,8 +1,9 @@
-export const ThemeColor = {
- 'P' : '#81c784',
- 'P_Light':'#b2fab4',
- 'P_Dark':'#519657',
- 'S' : '#c8e6c9',
- 'S_Light' : '#fbfffc',
- 'S_Dark' : '#97b498'
+const ThemeColor = {
+ Dark_Green : '#022E39',
+ Medium_Green : '#044855',
+ Offset_Red: '#793F4E',
+ Lighter_Red: '#D94B58',
+ Darker_Red:'#C0424E'
 }
+
+export default ThemeColor;

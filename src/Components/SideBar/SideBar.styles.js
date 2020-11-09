@@ -1,6 +1,7 @@
 import { FaTimes } from "react-icons/fa";
 import {  Link } from "react-router-dom";
 import styled from "styled-components";
+import ThemeColor from "../../ThemeProvider";
 
 
 export const SideBarContainer = styled.aside`
@@ -59,7 +60,7 @@ export const SideBarLink = styled(Link)`
   cursor:pointer;
 
   &:hover{
-    color: #01bf71;
+    color: ${ThemeColor.Darker_Red};
   }
 `;
 

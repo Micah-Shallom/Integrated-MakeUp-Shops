@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {ThemeColor} from '../../../../ThemeProvider'
+import ThemeColor from '../../../../ThemeProvider'
 
 export const AdminEntryContainer = styled.div`
   background-color:#fff;
@@ -12,7 +12,7 @@ export const AdminEntryContainer = styled.div`
     color:#000;
 
     span{
-      color : ${ThemeColor.P_Dark};
+      ${'' /* color : ${ThemeColor.P_Dark}; */}
       margin-right: 5px;
     }
 
@@ -61,7 +61,7 @@ export const AdminEntryContainer = styled.div`
     outline:none;
     border : none;
     resize:none;
-    border-bottom : 1px solid ${ThemeColor.P_Dark}
+    ${'' /* border-bottom : 1px solid ${ThemeColor.P_Dark} */}
   }
 
   & input::placeholder ,  & textarea::placeholder{

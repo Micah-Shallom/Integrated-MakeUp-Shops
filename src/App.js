@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 import './App.css';
-import HomePage from './Components/HomePage/HomePage.component';
+import HomePage from './Pages/HomePage/HomePage.component';
 import NavBar from './Components/NavBar/NavBar.component';
 import SideBar from './Components/SideBar/SideBar.component';
 import SignUp from './Pages/SignUp/SignUp.Component.jsx'
@@ -9,7 +9,7 @@ import { GlobalStylings } from './GlobalStyles';
 import AboutPage from './Pages/AboutPage/AboutPage.component';
 import IntroPage from './Pages/IntroPage/IntroPage.component';
 import SignIn from './Pages/SignInPage/SignIn.component';
-import AgentsPage, {AgentPage} from './Pages/AgentsPage/AgentsPage.component'
+import AgentsPage from './Pages/AgentsPage/AgentsPage.component'
 import ShopsPage from './Pages/ShopsPage/ShopsPage.component';
 
 

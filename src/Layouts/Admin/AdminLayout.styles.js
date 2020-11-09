@@ -2,25 +2,12 @@ import styled from "styled-components";
 
 export const AdminLayoutContainer = styled.main`
   width:100%;
-  overflow-y:scroll;
   padding:20px;
 
   & .adminOverall{
     display:flex;
     flex-direction:column;
 
-    &__header{
-        flex:.25;
-        
-        ${'' /* &__title{
-          color : 
-        } */}
-
-        &__userName{
-          font-weight:300;
-          font-weight:13px;
-          color:grey;
-        }
     }
 
     &__body{

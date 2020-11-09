@@ -19,32 +19,21 @@ export const DashboardData= [
     icon : FaLaptopCode,
     link : 'admin'
   },
-  // {
-  //   id : 4,
-  //   title : 'Agent',
-  //   icon : FaAddressBook,
-  //   link : 'agent'
-  // },
-  // {
-  //   id : 5,
-  //   title : 'Shops',
-  //   icon : FaShoppingBag,
-  //   link : 'shops'
-  // },
+
   {
-    id : 5,
+    id : 4,
     title : 'Business Owner',
     icon : FaCrown,
-    link : 'business'
+    link : 'businessowner'
   },
   {
-    id : 6,
+    id : 5,
     title : 'Students',
     icon : FaSchool,
     link : 'students'
   },
   {
-    id : 7,
+    id : 6,
     title : 'Settings',
     icon : FaCarCrash,
     link : 'settings'

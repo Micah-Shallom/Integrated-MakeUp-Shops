@@ -1,11 +1,10 @@
 import styled from "styled-components";
+import ThemeColor from "../../ThemeProvider";
 
 
 export const LayoutContainer = styled.div`
   width: 20vw;
   height:90vh;
-  border: 2px solid #ccc;
-  ${'' /* overflow-y:scroll; */}
 `;
 
 export const DashBoardLayoutContainer = styled.div`
@@ -24,11 +23,12 @@ export const UserProfile = styled.div`
   width:100%;
   text-align:center;
   border-bottom:2px solid #ccc;
+  background:${ThemeColor.Medium_Green};
   
 
   & .profile_img{
-    height: 50px;
-    width:50px;
+    height:70px;
+    width:70px;
     border-radius:50%;
     margin: 0 auto;
     border: 2px solid white;
@@ -38,6 +38,7 @@ export const UserProfile = styled.div`
   & .name {
     font-weight:bold;
     font-size:20px;
+    color:#fff;
   }
 
   & .userName {
@@ -57,5 +58,41 @@ export const DashBoardRoutes = styled.div`
   
   & div{
     flex: 1;
+  }
+`;
+
+export const DashBoardLayoutItem = styled.div`
+  width:100%;
+  display:grid;
+  place-items:center;
+  border-bottom:.5px solid grey;
+  transition:.3s ease-in-out all;  
+
+& .text{
+  width:95%;
+  padding: 12px 0px;
+  display:flex;
+}
+
+  & .icon {
+    color:#000;
+    font-size:20px;
+    margin-right:5px;
+    height:100%;
+    display:grid;
+    place-items:center;
+    flex:1;
+    color:${ThemeColor.Dark_Green}
+  }
+
+  & .title{
+    font-size: 18px;
+    width:65%;
+    flex:5;
+  }
+
+  :hover{
+    background-color:${ThemeColor.Offset_Red};
+    color:white;
   }
 `;

@@ -26,7 +26,7 @@ const NavBar = ({toggle}) => {
       {/* NavLink */}
       <NavMenu>
         <NavItem>
-          <NavLink to='/home'>Home</NavLink>
+          <NavLink to='/home/dashboard'>Home</NavLink>
         </NavItem>
         <NavItem>
           <NavLink to='/about'>About</NavLink>

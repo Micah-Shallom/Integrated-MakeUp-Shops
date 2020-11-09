@@ -1,25 +1,21 @@
 import React from 'react';
-import DashBoardCount from '../../Components/DashBoardCount/DashBoardCount';
-import {DashBoardContainer,DashBoardHeader,DashBoardCounter} from './DashBoard.styles';
+import {CountContainer, DashBoardContainer,DashBoardCounter} from './DashBoard.styles.js';
 import {countData} from './DashBoardCountData';
 
 const DashBoard = () => {
   return (
     <DashBoardContainer>
-      <DashBoardHeader>
-        <div className="intro">
-          <h1 className='title'>DashBoard</h1>
-          <p className='subtitle'>Welcome Micah Shallom</p>
-        </div>
-
-        <div className="links">
-          Hello
-        </div>
-      </DashBoardHeader>
-
       <DashBoardCounter>
           {
-            countData.map(({id,...otherProps}) => <DashBoardCount key={id} {...otherProps} />)
+           countData.map(({id,count,color,title,...icon}) => (
+            <CountContainer  key={id} color={color}>
+                <div className="icon">
+                  <icon.icon/>
+                </div>
+                <h1 className="count_value">{count}</h1>
+                <h2 className="title">{title}</h2>
+              </CountContainer>
+           ))
           }
       </DashBoardCounter>
     </DashBoardContainer>

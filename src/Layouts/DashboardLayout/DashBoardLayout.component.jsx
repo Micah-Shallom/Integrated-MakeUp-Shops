@@ -1,10 +1,12 @@
 import React from 'react';
-import {DashBoardLayoutContainer,UserProfile,DashBoardRoutes,LayoutContainer} from './DashboardLayout.styles';
+import {DashBoardLayoutContainer,UserProfile,DashBoardRoutes,LayoutContainer, DashBoardLayoutItem} from './DashboardLayout.styles';
 import {DashboardData} from './DashBoardData'
-import DashBoardLayoutItem from '../../Components/DashBoardLayoutItem/DashBoardLayoutItem.component';
-import profilePhoto from '../../assets/Images/pexels-alexander-krivitskiy-1264442.jpg'
 
-const DashBoardLayout = () => {
+import profilePhoto from '../../assets/Images/pexels-alexander-krivitskiy-1264442.jpg'
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
+
+const DashBoardLayout = ({match:{url}, history}) => {
   return (
     <LayoutContainer>
       <DashBoardLayoutContainer>
@@ -17,14 +19,22 @@ const DashBoardLayout = () => {
         </UserProfile>
 
         <DashBoardRoutes>
-            {
-              DashboardData.map(({id,...otherProps}) => <DashBoardLayoutItem key={id} {...otherProps} />)
-            }
+           {
+             DashboardData.map(({id,title,link,...icon}) => (
+              <DashBoardLayoutItem onClick={() => history.push(`/home/${link}`)} key={id} >
+                  <div className="text">
+                    <span className="icon">
+                     <icon.icon/>
+                    </span>
+                    <span className="title">{title}</span>
+                </div>
+                  </DashBoardLayoutItem>
+             ))
+           }
         </DashBoardRoutes>
       </DashBoardLayoutContainer>
-
     </LayoutContainer>
   )
 }
 
-export default DashBoardLayout
+export default withRouter(DashBoardLayout)

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { RButton } from '../../Components/Button/CButton.styles';
 import FormInput from '../../Components/FormInput/FormInput.component';
 import SocialBtn from '../../Components/SocialButton/SocialBtn.Component';
-import {SignInContainer,SignInForm,SignInH1,SignInHero,ContentContainer,ContentSubtitle,ContentTitle,HeroBg,SignInWrapper,SignInButtons,SignInLogo,SignInRem,SocialButtons,RememberMe } from './SignIn.styles';
+import {SignInContainer,SignInForm,SignInH1,SignInHero,ContentContainer,ContentSubtitle,ContentTitle,HeroBg,SignInWrapper,SignInButtons,SignInLogo,SignInRem,SocialButtons,RememberMe ,FormWrapper} from './SignIn.styles';
 import {FaFacebookF, FaGoogle, FaUser} from 'react-icons/fa';
 import SignInImage from '../../assets/Images/pesce-huang-Gby4rXlXBm4-unsplash.jpg';
 
@@ -39,30 +39,32 @@ const SignIn = () => {
 
           <p className='bisect'>OR</p>
 
+          <FormWrapper>
+            <FormInput 
+              handleChange={handleChange}
+              value={email}
+              label='Email'
+              type="text" 
+              name='email' 
+              required
+            />
 
-          <FormInput 
-            handleChange={handleChange}
-            value={email}
-            label='Email'
-            type="text" 
-            name='email' 
-            required
-          />
-
-          <FormInput 
-            handleChange={handleChange}
-            value={password}
-            label='Password'
-            type="password" 
-            name='password' 
-            required
-          />
+            <FormInput 
+              handleChange={handleChange}
+              value={password}
+              label='Password'
+              type="password" 
+              name='password' 
+              required
+            />
+          </FormWrapper>
+         
 
 
           <SignInRem>
 
             <RememberMe>
-              <input type="checkbox" />
+              <input type="checkbox" className='check'/>
               <div>Remember Me</div>
             </RememberMe>
             

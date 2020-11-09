@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import ThemeColor from "../../ThemeProvider";
 
 export const SButton = styled.button`
-  background-color: ${({color}) => (color ? color : '#3aafa9')};
+  background-color:${ThemeColor.Dark_Green};
   color : white;
   padding :  12px 30px;
   font-size: 1rem;
