@@ -16,10 +16,11 @@ export const DashBoardLayoutContainer = styled.div`
 
 export const UserProfile = styled.div`
   height:120px;
-  padding: 10px 0;
+  padding: 10px ;
   display:flex;
-  flex-direction:column;
+  ${'' /* flex-direction:column; */}
   justify-content:center;
+  align-items:center;
   width:100%;
   text-align:center;
   border-bottom:2px solid #ccc;

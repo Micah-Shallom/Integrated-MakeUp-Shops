@@ -27,24 +27,15 @@ background-color:white;
   width: 90%;
   margin:auto;
 
-  & .bisect{
-    position:relative;
-    margin:4px 0;
+.create-account {
+  align-self:flex-start;
+  margin-top:15px;
 
-    &::before,&::after{
-      content : '';
-      position:absolute;
-      border-bottom: 2px solid #000;
-      width: 40px;
-      top: 50%;
-      left: -45px;
-    }
-
-    &::after{
-      left: 30px;
-    }
-    
+  .link{
+    color:${ThemeColor.Darker_Red};
+    text-decoration:none;
   }
+}
 `;
 
 export const FormWrapper = styled.div`

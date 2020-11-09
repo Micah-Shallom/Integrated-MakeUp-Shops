@@ -14,8 +14,10 @@ const DashBoardLayout = ({match:{url}, history}) => {
         <UserProfile>
           <img className='profile_img' src={profilePhoto} alt="user_image"/>
 
-          <p className="name">Micah Shallom</p>
-          <p className="userName">@ms_intellect</p>
+          <div>
+            <p className="name">Micah Shallom</p>
+            <p className="userName">@ms_intellect</p>
+          </div>
         </UserProfile>
 
         <DashBoardRoutes>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 import './App.css';
 import HomePage from './Pages/HomePage/HomePage.component';
@@ -11,11 +11,35 @@ import IntroPage from './Pages/IntroPage/IntroPage.component';
 import SignIn from './Pages/SignInPage/SignIn.component';
 import AgentsPage from './Pages/AgentsPage/AgentsPage.component'
 import ShopsPage from './Pages/ShopsPage/ShopsPage.component';
+import { auth, createUserProfileDocument } from './firebase';
 
 
 const App = () => {
 
   const [isOpen , setIsOpen] = useState(false);
+  const [currentUser , setCurrentUser] = useState(null);
+  
+  useEffect (( ) => {
+    const unSubscribeFromAuthStream = auth.onAuthStateChanged(async userAuth => {
+      if(userAuth) {
+
+       const userRef = await createUserProfileDocument(userAuth)
+
+       await userRef.onSnapshot(snapshot => {
+        setCurrentUser({
+          id : snapshot.id,
+          ...snapshot.data()
+        })
+       })
+      }else{
+        setCurrentUser(userAuth)
+      }
+    })
+
+    return () => {
+      unSubscribeFromAuthStream();
+    }
+  },[currentUser])
 
   const toggle = () => {
     setIsOpen(!isOpen);

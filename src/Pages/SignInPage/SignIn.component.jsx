@@ -3,8 +3,10 @@ import { RButton } from '../../Components/Button/CButton.styles';
 import FormInput from '../../Components/FormInput/FormInput.component';
 import SocialBtn from '../../Components/SocialButton/SocialBtn.Component';
 import {SignInContainer,SignInForm,SignInH1,SignInHero,ContentContainer,ContentSubtitle,ContentTitle,HeroBg,SignInWrapper,SignInButtons,SignInLogo,SignInRem,SocialButtons,RememberMe ,FormWrapper} from './SignIn.styles';
-import {FaFacebookF, FaGoogle, FaUser} from 'react-icons/fa';
+import { FaGoogle, FaUser} from 'react-icons/fa';
 import SignInImage from '../../assets/Images/pesce-huang-Gby4rXlXBm4-unsplash.jpg';
+import { SignInWithGoogle } from '../../firebase';
+import { Link } from 'react-router-dom';
 
 const SignIn = () => {
   const [user , setUserCredentials] = useState({
@@ -32,13 +34,7 @@ const SignIn = () => {
             <FaUser/>
           </SignInLogo>
           <SignInH1>Please login to your account.</SignInH1>
-          <SocialButtons>
-              <SocialBtn icon={<FaFacebookF/>} title='FaceBook' type='button'/>
-              <SocialBtn icon={<FaGoogle/>}  title='Goggle' type='button'/>
-          </SocialButtons>
-
-          <p className='bisect'>OR</p>
-
+         
           <FormWrapper>
             <FormInput 
               handleChange={handleChange}
@@ -64,7 +60,7 @@ const SignIn = () => {
           <SignInRem>
 
             <RememberMe>
-              <input type="checkbox" className='check'/>
+              <input type="checkbox"  className='check'/>
               <div>Remember Me</div>
             </RememberMe>
             
@@ -72,11 +68,17 @@ const SignIn = () => {
 
           </SignInRem>
           <SignInButtons>
-           <SocialBtn type='submit' title='Login'/>
-            <RButton to='/signup' sharp='false'>
-              Sign Up
-            </RButton>
+           <SocialBtn type='submit' >
+             Sign In
+           </SocialBtn>
+           <SocialBtn handleClick={SignInWithGoogle}  icon={<FaGoogle/>} type='button' >
+                Google
+              </SocialBtn>
         </SignInButtons>
+
+        <p className='create-account'>Do not have an account? 
+        <Link to='/signup' className='link'> Create an account</Link>
+        </p>
         </SignInForm>
 
         <SignInHero>

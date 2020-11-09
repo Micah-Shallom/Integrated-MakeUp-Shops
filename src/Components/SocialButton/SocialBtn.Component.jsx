@@ -1,12 +1,12 @@
 import React from 'react'
 import { SButton } from './SocialBtn.styles';
 
-const SocialBtn = ({title,icon,type}) => (
-  <SButton type={type}>
+const SocialBtn = ({children,icon,type,handleClick}) => (
+  <SButton onClick={handleClick} type={type}>
     <div>
       {icon}
     </div>
-    {title}
+    {children}
   </SButton>
 )
 

@@ -70,7 +70,9 @@ const SignUp = () => {
         />
 
         <SignInButtons>
-           <SocialBtn type='submit' title='Sign Up'/>
+           <SocialBtn type='submit' >
+             Sign Up
+           </SocialBtn>
             <RButton to='/signin' sharp='false'>
               Log In
             </RButton>
