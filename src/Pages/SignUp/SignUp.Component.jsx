@@ -54,7 +54,7 @@ const SignUp = () => {
     try {
         const {user} = await auth.createUserWithEmailAndPassword(email,password);
 
-        await createUserProfileDocument(user,{displayName})
+        await createUserProfileDocument(user, {displayName} )
         cleanUp();
 
     } catch (error) {

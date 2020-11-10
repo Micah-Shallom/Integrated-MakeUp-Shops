@@ -4,8 +4,6 @@ const UserState = {
     currentUser : null
 }
 
-console.log(UserState.currentUser)
-
 
 export const userReducer = (state=UserState,action) => {
     switch (action.type) {

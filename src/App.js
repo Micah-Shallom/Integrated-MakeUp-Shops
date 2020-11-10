@@ -12,29 +12,31 @@ import SignIn from './Pages/SignInPage/SignIn.component';
 import AgentsPage from './Pages/AgentsPage/AgentsPage.component'
 import ShopsPage from './Pages/ShopsPage/ShopsPage.component';
 import { auth, createUserProfileDocument } from './firebase';
+import { connect } from 'react-redux';
+import { setCurrentUser } from './Redux/UserAuth/UserActions';
 
 
-const App = () => {
+const App = ({dispatchUser}) => {
 
   const [isOpen , setIsOpen] = useState(false);
-  const [currentUser , setCurrentUser] = useState(null);
 
   useEffect (() => {
     const unSubscribeFromAuthStream = auth.onAuthStateChanged(async userAuth => {
 
       if(userAuth) {
 
-       const userRef = await createUserProfileDocument(userAuth)
+       const userRef = await createUserProfileDocument(userAuth);
+       alert(userRef)
 
-       await userRef.onSnapshot(snapshot => {
-        setCurrentUser({
+       userRef.onSnapshot(snapshot => {
+        dispatchUser({
           id : snapshot.id,
           ...snapshot.data()
         })
        })
       }
 
-    setCurrentUser(userAuth)
+    dispatchUser(userAuth)
       
     })
 
@@ -66,4 +68,8 @@ const App = () => {
     </div>
   )
 }
-export default App;
+
+const mapDispatchToProps = dispatch => ({
+  dispatchUser : user => dispatch(setCurrentUser(user))
+})
+export default connect(null,mapDispatchToProps)(App);
