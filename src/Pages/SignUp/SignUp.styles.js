@@ -17,4 +17,6 @@ export const SignUpForm = styled.form`
 export const SignUpTitle = styled.h1`
   font-size:25px;
   text-align:center;
+  text-transform:uppercase;
+  word-spacing:4px;
 `;

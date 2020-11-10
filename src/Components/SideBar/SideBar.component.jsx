@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {SideBarContainer,SideBarLink,SideBarMenu,SideBarWrapper,Icon,CloseIcon} from './SideBar.styles'
 
 const SideBar = ({isOpen,toggle}) => {

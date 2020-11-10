@@ -18,9 +18,10 @@ const App = () => {
 
   const [isOpen , setIsOpen] = useState(false);
   const [currentUser , setCurrentUser] = useState(null);
-  
-  useEffect (( ) => {
+
+  useEffect (() => {
     const unSubscribeFromAuthStream = auth.onAuthStateChanged(async userAuth => {
+
       if(userAuth) {
 
        const userRef = await createUserProfileDocument(userAuth)
@@ -31,15 +32,16 @@ const App = () => {
           ...snapshot.data()
         })
        })
-      }else{
-        setCurrentUser(userAuth)
       }
+
+    setCurrentUser(userAuth)
+      
     })
 
     return () => {
       unSubscribeFromAuthStream();
     }
-  },[currentUser])
+  })
 
   const toggle = () => {
     setIsOpen(!isOpen);

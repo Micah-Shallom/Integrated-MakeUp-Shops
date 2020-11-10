@@ -5,7 +5,6 @@ import DashBoard from '../DashBoard/DashBoard.component';
 import Header from '../MainLayoutHeader/Header.component';
 import Profile from '../Profile/Profile.component';
 import {MainLayoutContainer, MainPageContainer} from './MainLayout.styles';
-import {BrowserRouter as Router , Route, Switch, withRouter,Redirect} from 'react-router-dom'
 import Students from '../Students/Students.component';
 import DashBoardLayout from '../DashboardLayout/DashBoardLayout.component'
 

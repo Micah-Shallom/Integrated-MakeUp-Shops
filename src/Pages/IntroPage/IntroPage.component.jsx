@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RButton } from '../../Components/Button/CButton.styles';
-import video from '../../assets/videos/video.mp4'
+// import video from '../../assets/videos/video.mp4'
 import {GiLipstick, GiMirrorMirror} from 'react-icons/gi'
 import {
   HeroBg,
@@ -27,7 +27,7 @@ const IntroPage = () => {
   return (
    <HeroContainer>
      <HeroBg>
-     <VideoBg autoPlay loop muted src={video} type='video/mp4'/>
+     <VideoBg autoPlay loop  src='' type='video/mp4'/>
      </HeroBg>
      <HeroContent>
             <HeroH1>
@@ -50,8 +50,7 @@ const IntroPage = () => {
 
             <HeroBtnWrapper>
             <RButton to='/signin' onMouseEnter={onHover} onMouseLeave={onHover}
-                primary={true}
-                dark={false}
+                primary='true'
                 >
                   Get Started
                   {hover ? <ArrowForward/> : <ArrowBackward/>}

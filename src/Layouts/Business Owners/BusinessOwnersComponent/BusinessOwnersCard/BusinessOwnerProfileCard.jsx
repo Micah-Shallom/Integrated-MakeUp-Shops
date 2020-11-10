@@ -35,11 +35,11 @@ const BusinessOwnerProfileCard = () => {
         </p>
         <p className="registered__students">
           <span>Registered Students : </span>
-          <span><a href="">Click to see more ...</a></span>
+          <span><a href="#">Click to see more ...</a></span>
         </p>
         <p className="registered__shops">
           <span>Registered Shops:</span>
-          <span><a href="">Click to see</a></span>
+          <span><a href="#">Click to see</a></span>
         </p>
       </div>
       <div className="social__info">

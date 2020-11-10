@@ -27,7 +27,7 @@ background-color:white;
   width: 90%;
   margin:auto;
 
-.create-account {
+  .create-account {
   align-self:flex-start;
   margin-top:15px;
 
@@ -36,6 +36,7 @@ background-color:white;
     text-decoration:none;
   }
 }
+
 `;
 
 export const FormWrapper = styled.div`
@@ -61,6 +62,8 @@ export const SocialButtons = styled.div`
   align-items:center;
   width: 100%;
   margin-top:20px;
+
+ 
 `;
 
 export const SignInHero = styled.div`
@@ -145,4 +148,13 @@ export const SignInButtons = styled.div`
   align-items:center;
   width: 100%;
   margin-top:20px;
+
+   .signIn {
+  
+  .link{
+    color:${ThemeColor.Darker_Red};
+    text-decoration:none;
+  }
+}
+
 `;

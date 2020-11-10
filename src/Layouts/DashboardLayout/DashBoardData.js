@@ -1,4 +1,4 @@
-import {FaAddressBook, FaCarCrash, FaCrown, FaHome, FaLaptopCode, FaSchool, FaShoppingBag, FaUser} from 'react-icons/fa';
+import {FaCarCrash, FaCrown, FaHome, FaLaptopCode, FaSchool, FaUser} from 'react-icons/fa';
 
 export const DashboardData= [
   {

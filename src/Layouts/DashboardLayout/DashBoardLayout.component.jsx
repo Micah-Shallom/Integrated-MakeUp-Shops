@@ -4,7 +4,6 @@ import {DashboardData} from './DashBoardData'
 
 import profilePhoto from '../../assets/Images/pexels-alexander-krivitskiy-1264442.jpg'
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
 
 const DashBoardLayout = ({match:{url}, history}) => {
   return (
