@@ -5,6 +5,7 @@ const UserState = {
 }
 
 
+
 export const userReducer = (state=UserState,action) => {
     switch (action.type) {
         case UserTypes.SET_CURRENT_USER :

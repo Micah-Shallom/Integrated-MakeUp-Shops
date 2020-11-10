@@ -3,7 +3,7 @@ import { SignInButtons } from '../../Pages/SignInPage/SignIn.styles';
 import FormInput from '../../Components/FormInput/FormInput.component';
 import SocialBtn from '../../Components/SocialButton/SocialBtn.Component';
 import {SignUpContainer,SignUpForm,SignUpTitle} from './SignUp.styles'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import { auth, createUserProfileDocument } from '../../firebase';
 
 const SignUp = () => {
@@ -55,6 +55,7 @@ const SignUp = () => {
         const {user} = await auth.createUserWithEmailAndPassword(email,password);
 
         await createUserProfileDocument(user, {displayName} )
+        alert('Account Created Successfully')
         cleanUp();
 
     } catch (error) {

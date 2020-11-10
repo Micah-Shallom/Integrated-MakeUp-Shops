@@ -1,5 +1,9 @@
 import React from 'react';
 import {FaBars} from 'react-icons/fa';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { auth } from '../../firebase';
+import { selectCurrentUser } from '../../Redux/UserAuth/UserSelectors';
 import {
   Nav,
   NavItem,
@@ -10,7 +14,7 @@ import {
   MobileNav
 } from './NavBar.styles'
 
-const NavBar = ({toggle}) => {
+const NavBar = ({toggle,currentUser}) => {
 
   return (
     <Nav>
@@ -25,7 +29,11 @@ const NavBar = ({toggle}) => {
 
       {/* NavLink */}
       <NavMenu>
-        <NavItem>
+       {
+         currentUser ? 
+         (
+           <>
+          <NavItem>
           <NavLink to='/home/dashboard'>Home</NavLink>
         </NavItem>
         <NavItem>
@@ -37,8 +45,14 @@ const NavBar = ({toggle}) => {
         <NavItem>
           <NavLink to='/shops'>Shops</NavLink>
         </NavItem>
+        </>
+         ) : ''
+       }
         <NavItem>
-          <NavLink to='/signin'>Sign In</NavLink>
+          {
+            !currentUser ? 
+            <NavLink to='/signin'>Sign In</NavLink> : <NavLink as='div' onClick={() => auth.signOut()}>Sign Out</NavLink>
+          }
         </NavItem>
       </NavMenu>
       </NavbarContainer>
@@ -46,4 +60,8 @@ const NavBar = ({toggle}) => {
   )
 }
 
-export default NavBar
+const mapStateToProps = createStructuredSelector({
+  currentUser : selectCurrentUser
+})
+
+export default connect(mapStateToProps)(NavBar);
