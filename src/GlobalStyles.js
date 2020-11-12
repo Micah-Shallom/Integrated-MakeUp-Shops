@@ -6,6 +6,7 @@ body,html{
   padding:0;
   box-sizing:border-box;
   height:100vh;
+  ${'' /* background: linear-gradient(135deg ,rgb(121, 62, 78),rgb(4, 72, 85)); */}
 }
 
 `;

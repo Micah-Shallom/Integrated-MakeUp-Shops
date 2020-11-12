@@ -2,24 +2,44 @@ import React, { useState } from 'react'
 import FormInput from '../../Components/FormInput/FormInput.component'
 import { UploadButton,UserContainer,UserProfile,UserProfileForm,ProfileContainer,ProfileForm } from './Profile.styles';
 import profileImage from '../../assets/Images/pexels-alexander-krivitskiy-1264442.jpg';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from '../../Redux/UserAuth/UserSelectors';
+import firebase, { firestore } from '../../firebase';
 
-const Profile = () => {
+const Profile = ({currentUser}) => {
+  const {id, displayName} = currentUser;
 
   const [userCredentials , setUserCredentials] = useState({
     firstName:'',
     lastName : '',
     emailAddress: '',
-    phoneNumber : ''
+    phoneNumber : '',
+    photoURL : null
   });
 
+
+
   const handleSubmit = e => {
-    console.log(userCredentials);
+    e.preventDefault();
+
+    firestore.collection('users').doc(id).update({
+      displayName : `${firstName} ${lastName}`,
+      email : emailAddress,
+      phoneNumber : phoneNumber,
+      photoURL: null,
+      createdAt : firebase.firestore.FieldValue.serverTimestamp()
+    }).then(() => {
+      console.log('Successfully Updated')
+    }).catch(err => console.log(err.message))
+
     setUserCredentials({
-    firstName:'',
-    lastName : '',
-    emailAddress: '',
-    phoneNumber : ''
+      firstName:'',
+      lastName : '',
+      emailAddress: '',
+      phoneNumber : ''
     })
+    console.log(userCredentials);
   }
 
   const handleChange = e => {
@@ -38,15 +58,9 @@ const Profile = () => {
         <UserProfile>
           <div className='main'>
             <img src={profileImage} alt="user_image" className="user_image"/>
-            <h1 className="name">Micah Shallom</h1>
+            <h1 className="name">{displayName}</h1>
             <p className='address'>Kaduna South Nigeria</p>
-            <p className="timeStamp">2nd December , 2020</p>
-          </div>
-
-          <div className="button_container">
-            <UploadButton> 
-              Upload Photo
-            </UploadButton>
+            <p className="timeStamp">..</p>
           </div>
 
         </UserProfile> 
@@ -90,11 +104,10 @@ const Profile = () => {
               name='phoneNumber' 
               required
             />
-          </ProfileForm>
-
           <div className="footer">
-            <UploadButton>Save Details</UploadButton>
+            <UploadButton type='submit'>Save Details</UploadButton>
           </div>
+          </ProfileForm>
         </UserProfileForm>     
       </UserContainer>
 
@@ -106,5 +119,8 @@ const Profile = () => {
    </ProfileContainer>
   )
 }
+const mapStateToProps = createStructuredSelector({
+  currentUser : selectCurrentUser
+})
 
-export default Profile
+export default connect(mapStateToProps)(Profile)

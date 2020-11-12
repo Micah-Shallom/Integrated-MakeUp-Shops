@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ThemeColor from "../../ThemeProvider";
 
 export const ProfileContainer = styled.div`
   width:100%;
@@ -12,17 +13,15 @@ export const UserContainer = styled.div`
 `;
 
 export const UserProfile = styled.div`
-    border-radius:5px;
-    border:2px solid #ccc;
     width:30%;;
     height:300px;
     text-align:center;
     display:flex;
     flex-direction:column;
     background-color:#fff;
+    box-shadow:2px 4px 10px rgba(0,0,0,.5);
 
   & .main{
-      border-bottom : 2px solid #ccc;
       padding:20px 10px;
       display:flex;
       flex-direction:column;
@@ -53,12 +52,7 @@ export const UserProfile = styled.div`
     }
   }
 
-  & .button_container{
-    flex-basis:20%;
-    display:flex;
-    align-items:center;
 
-  }
 `;
 
 export const UploadButton = styled.button`
@@ -74,14 +68,13 @@ export const UploadButton = styled.button`
 
 export const UserProfileForm = styled.div`
   width: 60%;
-  border:2px solid #ccc;
-  border-radius:5px;
   background-color:#fff;
+  box-shadow:2px 4px 10px rgba(0,0,0,.5);
 
   & .header{
     width: 100%;
     padding: 10px;
-    border-bottom : 2px solid #ccc;
+    border-bottom : 2px solid ${ThemeColor.Darker_Red};
   }
 
   & .footer{
@@ -89,12 +82,11 @@ export const UserProfileForm = styled.div`
     display:flex;
     place-items:center;
     padding:10px;
-    border-top:2px solid #ccc;
   }
 
 `;
 
-export const ProfileForm = styled.div`
+export const ProfileForm = styled.form`
   width: 100%;
   padding : 10px 20px;
 `;

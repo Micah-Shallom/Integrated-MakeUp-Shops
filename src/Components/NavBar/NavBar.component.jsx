@@ -29,10 +29,7 @@ const NavBar = ({toggle,currentUser}) => {
 
       {/* NavLink */}
       <NavMenu>
-       {
-         currentUser ? 
-         (
-           <>
+     
           <NavItem>
           <NavLink to='/home/dashboard'>Home</NavLink>
         </NavItem>
@@ -45,14 +42,15 @@ const NavBar = ({toggle,currentUser}) => {
         <NavItem>
           <NavLink to='/shops'>Shops</NavLink>
         </NavItem>
-        </>
-         ) : ''
-       }
+  
         <NavItem>
-          {
-            !currentUser ? 
-            <NavLink to='/signin'>Sign In</NavLink> : <NavLink as='div' onClick={() => auth.signOut()}>Sign Out</NavLink>
-          }
+        {
+          !currentUser ? <NavLink to='/signin'>Sign In</NavLink> : <NavLink as='div' onClick={() => auth.signOut()}>Sign Out</NavLink>
+         
+        }
+         
+             
+             
         </NavItem>
       </NavMenu>
       </NavbarContainer>

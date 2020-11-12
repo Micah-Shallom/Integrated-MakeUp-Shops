@@ -15,7 +15,7 @@ const config = {
 
   firebase.initializeApp(config);
 
-export const createUserProfileDocument= async (userAuth , additionalData ) => {
+export const createUserProfileDocument = async (userAuth , additionalData ) => {
 
   if(!userAuth) return ;
 
@@ -53,3 +53,5 @@ const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({prompt : 'select_account'})
 const SignInWithGoogle = () => auth.signInWithPopup(provider)
 export {auth,firestore,SignInWithGoogle};
+
+export default firebase;

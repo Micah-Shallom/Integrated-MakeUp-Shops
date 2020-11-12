@@ -18,7 +18,7 @@ import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './Redux/UserAuth/UserSelectors';
 
 
-const App = ({dispatchUser,currentUser}) => {
+const App =  ({dispatchUser,currentUser}) => {
 
   const [isOpen , setIsOpen] = useState(false);
 
@@ -29,22 +29,18 @@ const App = ({dispatchUser,currentUser}) => {
 
        const userRef = await createUserProfileDocument(userAuth);
 
-       userRef.onSnapshot(snapshot => {
+      userRef.onSnapshot(snapshot => {
         dispatchUser({
           id : snapshot.id,
           ...snapshot.data()
         })
-       },[dispatchUser])
+       })
+      }else{
+        dispatchUser(userAuth)
       }
-
-    dispatchUser(userAuth)
-      
     })
-
-    return () => {
-      unSubscribeFromAuthStream();
-    }
-  })
+    return () => unSubscribeFromAuthStream();
+  },[dispatchUser])
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -83,4 +79,4 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
   dispatchUser : user => dispatch(setCurrentUser(user))
 })
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App)

@@ -18,7 +18,6 @@ export const UserProfile = styled.div`
   height:120px;
   padding: 10px ;
   display:flex;
-  ${'' /* flex-direction:column; */}
   justify-content:center;
   align-items:center;
   width:100%;
@@ -55,7 +54,7 @@ export const DashBoardRoutes = styled.div`
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  overflow-y:scroll;
+  border-right: 1px solid ${ThemeColor.Medium_Green};
   
   & div{
     flex: 1;
@@ -93,7 +92,7 @@ export const DashBoardLayoutItem = styled.div`
   }
 
   :hover{
-    background-color:${ThemeColor.Offset_Red};
+    background-color:${ThemeColor.Medium_Green};
     color:white;
   }
 `;
